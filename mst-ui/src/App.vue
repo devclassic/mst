@@ -12,6 +12,14 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   @import 'uview-pro/index.scss';
+
+  .page {
+    width: 750rpx;
+    min-height: 100dvh;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+  }
 </style>

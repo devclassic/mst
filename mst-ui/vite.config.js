@@ -6,9 +6,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler', // 使用现代编译器 API
+        api: 'modern-compiler',
         silenceDeprecations: ['legacy-js-api', 'import'],
       },
     },
+  },
+  build: {
+    assetsInlineLimit: 0,
   },
 })
