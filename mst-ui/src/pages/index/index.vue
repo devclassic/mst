@@ -219,7 +219,7 @@
       top: 140rpx;
       left: 125rpx;
       .line1 {
-        font-size: 28rpx;
+        font-size: 30rpx;
       }
       .line2 {
         font-size: 26rpx;
