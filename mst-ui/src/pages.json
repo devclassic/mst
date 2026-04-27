@@ -1,15 +1,29 @@
 {
+  "pages": [
+    {
+      "path": "pages/index/index"
+    },
+    {
+      "path": "pages/order/order"
+    },
+    {
+      "path": "pages/my/my"
+    }
+  ],
   "easycom": {
     "autoscan": true,
     "custom": {
       "^u-(.*)": "uview-pro/components/u-$1/u-$1.vue"
     }
   },
-  "pages": [
-    {
-      "path": "pages/index/index"
-    }
-  ],
+  "tabBar": {
+    "custom": true,
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/order/order", "text": "运单速查" },
+      { "pagePath": "pages/my/my", "text": "我的" }
+    ]
+  },
   "globalStyle": {
     "navigationStyle": "custom"
   }

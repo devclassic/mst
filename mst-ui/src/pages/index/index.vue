@@ -1,21 +1,21 @@
 <template>
   <view class="page">
-    <image src="../../assets/images/index-top-bg.png" mode="widthFix" class="top-bg" />
+    <image src="/static/images/index-top-bg.png" mode="widthFix" class="top-bg" />
     <view class="box">
       <view class="search">
-        <image src="../../assets/images/index-search.png" mode="widthFix" class="search-bg" />
+        <image src="/static/images/index-search.png" mode="widthFix" class="search-bg" />
         <input type="text" placeholder="输入手机号 运单号 查快递" class="input" />
         <view class="button"></view>
       </view>
       <view class="block" :class="'block' + state.block">
         <image
           v-if="state.block === 1"
-          src="../../assets/images/index-block-1.png"
+          src="/static/images/index-block-1.png"
           mode="widthFix"
           class="block-bg" />
         <image
           v-if="state.block === 2"
-          src="../../assets/images/index-block-2.png"
+          src="/static/images/index-block-2.png"
           mode="widthFix"
           class="block-bg" />
         <view class="switch">
@@ -34,25 +34,25 @@
         <view class="line">
           <view class="item">
             <view>
-              <image src="../../assets/images/business1.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business1.png" mode="widthFix" class="pic" />
               <view class="text">寄快递</view>
             </view>
           </view>
           <view class="item">
             <view>
-              <image src="../../assets/images/business2.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business2.png" mode="widthFix" class="pic" />
               <view class="text">寄大件</view>
             </view>
           </view>
           <view class="item">
             <view>
-              <image src="../../assets/images/business3.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business3.png" mode="widthFix" class="pic" />
               <view class="text">货拉拉</view>
             </view>
           </view>
           <view class="item">
             <view>
-              <image src="../../assets/images/business4.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business4.png" mode="widthFix" class="pic" />
               <view class="text">跑腿</view>
             </view>
           </view>
@@ -60,30 +60,30 @@
         <view class="line">
           <view class="item">
             <view>
-              <image src="../../assets/images/business5.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business5.png" mode="widthFix" class="pic" />
               <view class="text">补差价</view>
             </view>
           </view>
           <view class="item">
             <view>
-              <image src="../../assets/images/business6.png" mode="widthFix" class="pic" />
+              <image src="/static/images/business6.png" mode="widthFix" class="pic" />
               <view class="text">客服</view>
             </view>
           </view>
         </view>
       </view>
       <view class="entrance">
-        <image src="../../assets/images/index-entrance.png" mode="widthFix" class="entrance-bg" />
+        <image src="/static/images/index-entrance.png" mode="widthFix" class="entrance-bg" />
         <view class="entrance1"></view>
         <view class="entrance2"></view>
       </view>
       <view class="status">
         <view class="row1">
           <view class="left">
-            <image src="../../assets/images/icon-zt.png" class="logo" />
+            <image src="/static/images/icon-zt.png" class="logo" />
             <view class="name">中通快递</view>
             <view class="number">123456789123456</view>
-            <image src="../../assets/images/icon-plus.png" mode="widthFix" class="icon" />
+            <image src="/static/images/icon-plus.png" mode="widthFix" class="icon" />
           </view>
           <view class="right">运输中</view>
         </view>
@@ -93,7 +93,7 @@
             <view class="name">李女士</view>
           </view>
           <view class="center">
-            <image src="../../assets/images/icon-truck.png" mode="widthFix" class="icon" />
+            <image src="/static/images/icon-truck.png" mode="widthFix" class="icon" />
           </view>
           <view class="right">
             <view class="addr">内蒙古包头市</view>
@@ -102,7 +102,7 @@
         </view>
         <view class="row3">
           <view class="text">
-            <image src="../../assets/images/icon-dot.png" mode="widthFix" class="dot" />
+            <image src="/static/images/icon-dot.png" mode="widthFix" class="dot" />
             <view>运输中 2026-04-15 13:05:49</view>
             <view>【包头市】快件已到达满都拉分部</view>
           </view>
@@ -113,12 +113,14 @@
         </view>
       </view>
     </view>
-    <image src="../../assets/images/index-bottom-bg.png" mode="widthFix" class="bottom-bg" />
+    <image src="/static/images/index-bottom-bg.png" mode="widthFix" class="bottom-bg" />
   </view>
+  <Tabbar />
 </template>
 
 <script setup>
   import { reactive } from 'vue'
+  import Tabbar from '../../components/tabbar/Tabbar.vue'
 
   const state = reactive({
     block: 1, // 1寄快递 2寄大件

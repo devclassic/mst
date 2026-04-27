@@ -1,15 +1,24 @@
-<script>
-  export default {
-    onLaunch: function () {
-      console.log('App Launch')
-    },
-    onShow: function () {
-      console.log('App Show')
-    },
-    onHide: function () {
-      console.log('App Hide')
-    },
+<script setup>
+  import { onLaunch, onShow } from '@dcloudio/uni-app'
+
+  const hideTabBar = () => {
+    uni.hideTabBar({ fail: () => {} })
+    // #ifdef H5
+    const tabbar = document.querySelector('.uni-tabbar')
+    if (tabbar) {
+      tabbar.style.display = 'none'
+    }
+    // #endif
   }
+  onLaunch(() => {
+    hideTabBar()
+    setTimeout(hideTabBar, 300)
+  })
+
+  onShow(() => {
+    hideTabBar()
+    setTimeout(hideTabBar, 300)
+  })
 </script>
 
 <style lang="scss">
