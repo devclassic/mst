@@ -27,7 +27,7 @@
           <view class="row3">
             <view @click="setDefault(item)" class="left">
               <Check v-model="item.default" />
-              <view class="text">默认寄件地址</view>
+              <view class="text">默认{{ type }}地址</view>
             </view>
             <view class="right">
               <view @click="remove(item)" class="btn">删除</view>
@@ -42,12 +42,12 @@
     <view @click="manage" class="btn1">管理</view>
     <view @click="add" class="btn2">
       <image src="/static/images/address-botbar1-btn2.png" mode="widthFix" class="bg" />
-      新增{{ typetext }}地址
+      新增{{ type }}地址
     </view>
   </view>
   <view v-if="state.showBotbar2" class="botbar2">
     <div @click="all" class="left">
-      <Check class="check" />
+      <Check v-model="state.checkAll" class="check" />
       <view class="all">全选</view>
     </div>
     <view class="right">
@@ -61,7 +61,7 @@
 </template>
 
 <script setup>
-  import { computed, reactive } from 'vue'
+  import { computed, reactive, watchEffect } from 'vue'
   import Check from '../../components/check/Check.vue'
 
   const state = reactive({
@@ -110,11 +110,16 @@
     ],
   })
 
+  watchEffect(() => {
+    const checkAll = state.items.filter(item => item.check === true).length === state.items.length
+    state.checkAll = checkAll
+  })
+
   const prefix = computed(() => {
     return state.type === 1 ? '寄件人' : '收件人'
   })
 
-  const typetext = computed(() => {
+  const type = computed(() => {
     return state.type === 1 ? '寄件' : '收件'
   })
 
