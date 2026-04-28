@@ -30,5 +30,18 @@
     margin: 0 auto;
     overflow: hidden;
     position: relative;
+    .back {
+      width: 20rpx;
+      height: 30rpx;
+      position: absolute;
+      top: 100rpx;
+      left: 30rpx;
+      z-index: 999;
+      .bg {
+        width: 100%;
+        position: absolute;
+        z-index: -1;
+      }
+    }
   }
 </style>

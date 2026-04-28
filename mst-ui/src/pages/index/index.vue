@@ -9,12 +9,12 @@
       </view>
       <view class="block" :class="'block' + state.block">
         <image
-          v-if="state.block === 1"
+          v-show="state.block === 1"
           src="/static/images/index-block-1.png"
           mode="widthFix"
           class="block-bg" />
         <image
-          v-if="state.block === 2"
+          v-show="state.block === 2"
           src="/static/images/index-block-2.png"
           mode="widthFix"
           class="block-bg" />
@@ -22,7 +22,7 @@
           <view v-show="state.block === 2" @click="blockSwitch(1)" class="btn btn1"></view>
           <view v-show="state.block === 1" @click="blockSwitch(2)" class="btn btn2"></view>
         </view>
-        <view class="link address"></view>
+        <view @click="toAddress" class="link address"></view>
         <view class="link send"></view>
         <view class="text1">
           <view class="line1">鲁仁贾</view>
@@ -128,6 +128,10 @@
 
   const blockSwitch = i => {
     state.block = i
+  }
+
+  const toAddress = () => {
+    uni.navigateTo({ url: '/pages/address/list' })
   }
 </script>
 

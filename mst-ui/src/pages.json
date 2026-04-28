@@ -4,6 +4,12 @@
       "path": "pages/index/index"
     },
     {
+      "path": "pages/address/list"
+    },
+    {
+      "path": "pages/address/edit"
+    },
+    {
       "path": "pages/order/order"
     },
     {
