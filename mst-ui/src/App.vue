@@ -26,7 +26,7 @@
 
   .page {
     width: 750rpx;
-    min-height: 100dvh;
+    min-height: 100vh;
     margin: 0 auto;
     overflow: hidden;
     position: relative;

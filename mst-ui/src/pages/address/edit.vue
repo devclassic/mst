@@ -115,7 +115,6 @@
   .page {
     background: #fefbf6;
     position: relative;
-    padding-bottom: 150rpx;
     .top-bg {
       width: 100%;
       position: absolute;
@@ -125,7 +124,7 @@
 
   .form {
     width: 700rpx;
-    margin: 150rpx auto 0;
+    margin: 175rpx auto 0;
     background: #ffffff;
     border-radius: 30rpx;
     padding: 0 25rpx;
