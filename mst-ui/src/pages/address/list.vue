@@ -58,17 +58,25 @@
       </view>
     </view>
   </view>
+  <Confim v-model="state.showRemoveConfim">
+    <view class="confim-text">
+      <view>删除后地址将无法恢复</view>
+      <view>请确认删除该地址</view>
+    </view>
+  </Confim>
 </template>
 
 <script setup>
   import { computed, reactive, watchEffect } from 'vue'
   import Check from '../../components/check/Check.vue'
+  import Confim from '../../components/confim/Confim.vue'
 
   const state = reactive({
     type: 1, // 1寄件人 2收件人
     showCheck: false,
     showBotbar1: true,
     showBotbar2: false,
+    showRemoveConfim: false,
     checkAll: false,
     items: [
       {
@@ -159,9 +167,13 @@
     uni.navigateTo({ url: `/pages/address/edit?type=${state.type}&action=edit` })
   }
 
-  const remove = item => {}
+  const remove = item => {
+    state.showRemoveConfim = true
+  }
 
-  const batchRemove = () => {}
+  const batchRemove = () => {
+    state.showRemoveConfim = true
+  }
 
   const complete = () => {
     state.showBotbar1 = true
@@ -391,5 +403,9 @@
         }
       }
     }
+  }
+
+  .confim-text {
+    text-align: center;
   }
 </style>
