@@ -25,7 +25,7 @@
 <style scoped lang="scss">
   .mask {
     width: 750rpx;
-    height: 100dvh;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.8);
     position: fixed;
     top: 50%;
