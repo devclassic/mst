@@ -4,16 +4,28 @@
     <view class="form">
       <view class="row">
         <view class="label">姓名</view>
-        <input v-model="state.form.name" type="text" placeholder="请输入姓名" class="input name" />
+        <input
+          v-model="state.form.name"
+          type="text"
+          placeholder="请输入姓名"
+          placeholder-style="color:#cccccc"
+          class="input name" />
         <view @click="toAddress" class="btn">地址薄</view>
       </view>
       <view class="row">
         <view class="label">电话</view>
-        <input v-model="state.form.phone" type="text" placeholder="请输入联系号码" class="input" />
+        <input
+          v-model="state.form.phone"
+          type="text"
+          placeholder="请输入联系号码"
+          placeholder-style="color:#cccccc"
+          class="input" />
       </view>
       <view @click="showRegion" class="row">
         <view class="label">省市</view>
-        <view class="value">{{ regionText }}</view>
+        <view class="region" :class="{ has: regionText !== '请选择省市区' }">
+          {{ regionText }}
+        </view>
         <image src="/static/images/arrow-right.png" mode="widthFix" class="arrow" />
       </view>
       <view class="row">
@@ -22,6 +34,7 @@
           v-model="state.form.address"
           type="text"
           placeholder="请输入详细地址"
+          placeholder-style="color:#cccccc"
           class="input" />
       </view>
       <view class="row">
@@ -149,9 +162,12 @@
         line-height: 60rpx;
         font-size: 28rpx;
       }
-      .value {
-        color: #888a88;
+      .region {
+        color: #cccccc;
         font-size: 28rpx;
+        &.has {
+          color: #000000;
+        }
       }
       .name {
         width: 304rpx;

@@ -4,7 +4,11 @@
     <view class="box">
       <view class="search">
         <image src="/static/images/index-search.png" mode="widthFix" class="search-bg" />
-        <input type="text" placeholder="输入手机号 运单号 查快递" class="input" />
+        <input
+          type="text"
+          placeholder="输入手机号 运单号 查快递"
+          placeholder-style="color:#999999"
+          class="input" />
         <view class="button"></view>
       </view>
       <view class="block" :class="'block' + state.block">

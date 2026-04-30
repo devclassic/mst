@@ -10,7 +10,11 @@
     </view>
     <view class="search">
       <image src="/static/images/address-search.png" mode="widthFix" class="bg" />
-      <input type="text" placeholder="输入手机号查询" class="input" />
+      <input
+        type="text"
+        placeholder="输入手机号查询"
+        placeholder-style="color:#cccccc"
+        class="input" />
     </view>
     <view class="list">
       <view v-for="(item, index) in state.items" :key="index" class="item-box">
