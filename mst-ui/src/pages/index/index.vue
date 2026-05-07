@@ -1,9 +1,9 @@
 <template>
   <view class="page">
-    <image src="/static/index-top.png" mode="widthFix" class="top-bg" />
+    <image src="/static/index-top.png" class="top-bg" />
     <view class="main">
       <view class="search">
-        <image src="/static/index-search.png" mode="widthFix" class="bg" />
+        <image src="/static/index-search.png" class="bg" />
         <input
           type="number"
           placeholder="输入 手机号 运单号 查快递"
@@ -12,19 +12,11 @@
         <view class="btn"></view>
       </view>
       <view class="block">
-        <image
-          v-if="state.type === 1"
-          src="/static/index-block-1.png"
-          mode="widthFix"
-          class="block-bg" />
-        <image
-          v-if="state.type === 2"
-          src="/static/index-block-2.png"
-          mode="widthFix"
-          class="block-bg" />
+        <image v-if="state.type === 1" src="/static/index-block-1.png" class="block-bg" />
+        <image v-if="state.type === 2" src="/static/index-block-2.png" class="block-bg" />
         <view v-if="state.type === 1" @click="changeType(2)" class="btn1"></view>
         <view v-if="state.type === 2" @click="changeType(1)" class="btn2"></view>
-        <view class="btn3"></view>
+        <view @click="uni.navigateTo({ url: '/pages/addr/list' })" class="btn3"></view>
         <view class="btn4"></view>
         <view class="info1">
           <view class="name">路人甲</view>
@@ -63,7 +55,7 @@
         </view>
       </view>
       <view class="ad">
-        <image src="/static/index-ad.png" mode="widthFix" class="bg" />
+        <image src="/static/index-ad.png" class="bg" />
         <view class="btn1"></view>
         <view class="btn2"></view>
       </view>
@@ -129,16 +121,21 @@
     padding-bottom: 90rpx;
     .top-bg {
       width: 100%;
+      height: 500rpx;
       position: absolute;
       z-index: 0;
     }
     .main {
+      width: 700rpx;
+      margin: 0 auto;
+      position: relative;
       margin-top: 400rpx;
       .search {
         height: 102rpx;
         position: relative;
         .bg {
           width: 100%;
+          height: 102rpx;
           position: absolute;
           z-index: 0;
         }
@@ -164,6 +161,7 @@
         position: relative;
         .block-bg {
           width: 100%;
+          height: 361rpx;
           position: absolute;
           z-index: 0;
         }
@@ -250,6 +248,7 @@
         position: relative;
         .bg {
           width: 100%;
+          height: 150rpx;
           position: absolute;
           z-index: 0;
         }
@@ -349,12 +348,12 @@
               height: 25rpx;
               border-radius: 50%;
               position: absolute;
-              top: 5rpx;
+              top: 8rpx;
               left: -14rpx;
             }
             .mask {
               width: 10rpx;
-              height: 5rpx;
+              height: 8rpx;
               background: #fefbf6;
               position: absolute;
               top: 0;
@@ -380,6 +379,7 @@
               display: flex;
               justify-content: center;
               align-items: center;
+              font-size: 24rpx;
             }
           }
         }

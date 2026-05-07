@@ -19,6 +19,7 @@
   "pages": [
     { "path": "pages/index/index" },
     { "path": "pages/order/order" },
-    { "path": "pages/my/my" }
+    { "path": "pages/my/my" },
+    { "path": "pages/addr/list" }
   ]
 }

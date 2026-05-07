@@ -31,10 +31,4 @@
     overflow: hidden;
     position: relative;
   }
-
-  .main {
-    width: 700rpx;
-    margin: 0 auto;
-    position: relative;
-  }
 </style>
