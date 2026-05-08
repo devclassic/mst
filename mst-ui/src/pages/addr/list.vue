@@ -57,9 +57,9 @@
         <image src="/static/addr-list-botbar-btn1.png" class="bg" />
         <view class="text">管理</view>
       </view>
-      <view class="btn2">
+      <view @click="edit(1)" class="btn2">
         <image src="/static/addr-list-botbar-btn2.png" class="bg" />
-        <view @click="edit(1)" class="text">新增{{ type }}地址</view>
+        <view class="text">新增{{ type }}地址</view>
       </view>
     </view>
     <view v-if="state.showBotbar2" class="botbar2">
@@ -73,9 +73,9 @@
           @change="checkAllChange($event)" />
       </view>
       <view class="right">
-        <view class="btn1">
+        <view @click="removeBatch" class="btn1">
           <image src="/static/addr-list-botbar-btn3.png" class="bg" />
-          <view @click="removeBatch" class="text">删除</view>
+          <view class="text">删除</view>
         </view>
         <view @click="complete" class="btn2">
           <image src="/static/addr-list-botbar-btn4.png" class="bg" />
@@ -183,13 +183,9 @@
     }
   }
 
-  // type 1新增
-  const edit = type => {
-    if (type === 1) {
-      uni.navigateTo({ url: '/pages/addr/edit' })
-    } else {
-      uni.navigateTo({ url: '/pages/addr/edit' })
-    }
+  // act 1新增
+  const edit = act => {
+    uni.navigateTo({ url: `/pages/addr/edit?type=${state.type}&act=${act}` })
   }
 
   const manage = async () => {
