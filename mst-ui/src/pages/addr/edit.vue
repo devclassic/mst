@@ -29,7 +29,7 @@
           <view class="left">
             <view class="label">电话</view>
             <input
-              type="text"
+              type="number"
               v-model="state.form.tel"
               placeholder="请输入联系号码"
               placeholder-style="color:#cccccc"
