@@ -44,13 +44,14 @@
                 @change="checkDefaultChange($event, item)" />
             </view>
             <view class="right">
-              <view class="btn">删除</view>
-              <view class="btn">编辑</view>
+              <view @click="remove" class="btn">删除</view>
+              <view @click="edit(2)" class="btn">编辑</view>
             </view>
           </view>
         </view>
       </view>
     </view>
+    <Confirm v-model="state.showConfirm" :text="state.confirmText" @ok="confirmOk" />
     <view v-if="!state.showBotbar2" class="botbar1">
       <view @click="manage" class="btn1">
         <image src="/static/addr-list-botbar-btn1.png" class="bg" />
@@ -58,7 +59,7 @@
       </view>
       <view class="btn2">
         <image src="/static/addr-list-botbar-btn2.png" class="bg" />
-        <view class="text">新增{{ type }}地址</view>
+        <view @click="edit(1)" class="text">新增{{ type }}地址</view>
       </view>
     </view>
     <view v-if="state.showBotbar2" class="botbar2">
@@ -74,7 +75,7 @@
       <view class="right">
         <view class="btn1">
           <image src="/static/addr-list-botbar-btn3.png" class="bg" />
-          <view class="text">删除</view>
+          <view @click="removeBatch" class="text">删除</view>
         </view>
         <view @click="complete" class="btn2">
           <image src="/static/addr-list-botbar-btn4.png" class="bg" />
@@ -87,12 +88,16 @@
 
 <script setup>
   import { computed, reactive } from 'vue'
+  import Confirm from '../../components/confirm/Confirm.vue'
 
   const state = reactive({
     type: 1, // 1寄件 2收件
     showCheck: false,
-    checkAll: false,
     showBotbar2: false,
+    showConfirm: false,
+    confirmType: 0, // 1单个删除 2批量删除
+    confirmText: '',
+    checkAll: false,
     items: [
       {
         name: '路人甲',
@@ -153,6 +158,38 @@
     state.items.forEach(item => {
       item.check = check
     })
+  }
+
+  const remove = () => {
+    state.confirmType = 1
+    state.confirmText = '删除后将无法恢复\n请确认删除'
+    state.showConfirm = true
+  }
+
+  const removeBatch = () => {
+    state.confirmType = 2
+    state.confirmText = '删除后将无法恢复\n请确认删除'
+    state.showConfirm = true
+  }
+
+  const confirmOk = () => {
+    switch (state.confirmType) {
+      case 1:
+        break
+      case 2:
+        state.showCheck = false
+        state.showBotbar2 = false
+        break
+    }
+  }
+
+  // type 1新增
+  const edit = type => {
+    if (type === 1) {
+      uni.navigateTo({ url: '/pages/addr/edit' })
+    } else {
+      uni.navigateTo({ url: '/pages/addr/edit' })
+    }
   }
 
   const manage = async () => {
