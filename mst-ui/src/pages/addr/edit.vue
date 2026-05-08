@@ -202,6 +202,7 @@
           :deep(.u-checkbox__label) {
             font-size: 26rpx;
             color: #000000;
+            margin-left: 20rpx;
           }
         }
       }

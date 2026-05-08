@@ -21,11 +21,7 @@
     <view class="list">
       <view v-for="item in state.items" class="wrap">
         <view v-if="state.showCheck" class="check">
-          <u-checkbox
-            v-model="item.check"
-            shape="circle"
-            size="40rpx"
-            @change="checkChange($event, item)" />
+          <u-checkbox v-model="item.check" shape="circle" @change="checkChange($event, item)" />
         </view>
         <view class="item" :class="{ active: item.default }">
           <view class="row1">
@@ -38,9 +34,7 @@
               <u-checkbox
                 v-model="item.default"
                 shape="circle"
-                size="40rpx"
                 :label="`默认${type}地址`"
-                label-size="26rpx"
                 @change="checkDefaultChange($event, item)" />
             </view>
             <view class="right">
@@ -308,14 +302,16 @@
               display: flex;
               align-items: center;
               :deep(.u-checkbox__label) {
+                font-size: 26rpx;
                 color: #000000;
+                margin-left: 20rpx;
               }
             }
             .right {
               display: flex;
               justify-content: flex-end;
               .btn {
-                width: 160rpx;
+                width: 150rpx;
                 height: 55rpx;
                 border: 1px solid #ffaf54;
                 color: #ff8800;
