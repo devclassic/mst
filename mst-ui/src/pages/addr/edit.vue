@@ -119,7 +119,7 @@
       height: 31rpx;
       position: absolute;
       top: 100rpx;
-      left: 25rpx;
+      left: 50rpx;
       z-index: 1000;
     }
     .top-bg {
