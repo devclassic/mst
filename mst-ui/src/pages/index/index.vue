@@ -25,12 +25,12 @@
         <view class="info4">请填写收货人信息</view>
       </view>
       <view class="pics">
-        <view class="row">
+        <view @click="uni.navigateTo({ url: '/pages/express/index' })" class="row">
           <view class="item">
             <image src="/static/index-pic-1.png" class="pic" />
             <view class="text">寄快递</view>
           </view>
-          <view class="item">
+          <view @click="uni.navigateTo({ url: '/pages/express/index' })" class="item">
             <image src="/static/index-pic-2.png" class="pic" />
             <view class="text">寄大件</view>
           </view>
