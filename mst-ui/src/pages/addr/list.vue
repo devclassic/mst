@@ -225,7 +225,7 @@
           margin-right: 0;
         }
         &.active {
-          color: #ff8800;
+          font-weight: bold;
         }
       }
     }

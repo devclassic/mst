@@ -17,7 +17,7 @@
         <view v-if="state.type === 1" @click="changeType(2)" class="btn1"></view>
         <view v-if="state.type === 2" @click="changeType(1)" class="btn2"></view>
         <view @click="uni.navigateTo({ url: '/pages/addr/list' })" class="btn3"></view>
-        <view class="btn4"></view>
+        <view @click="uni.navigateTo({ url: '/pages/express/index' })" class="btn4"></view>
         <view class="info1">
           <view class="name">路人甲</view>
           <view class="text">补充寄件人信息</view>

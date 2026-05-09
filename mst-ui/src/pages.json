@@ -21,6 +21,7 @@
     { "path": "pages/order/order" },
     { "path": "pages/my/my" },
     { "path": "pages/addr/list" },
-    { "path": "pages/addr/edit" }
+    { "path": "pages/addr/edit" },
+    { "path": "pages/express/index" }
   ]
 }
