@@ -84,6 +84,7 @@
   import { usePageParams } from '../../hooks/usePageParams'
 
   const page = usePageParams()
+  console.log(page.params.value)
 
   const state = reactive({
     showRegion: false,
@@ -97,7 +98,7 @@
   })
 
   const type = computed(() => {
-    return page.params.value.type === 1 ? '寄件' : '收件'
+    return page.params.value.type == 1 ? '寄件' : '收件'
   })
 
   const clean = () => {

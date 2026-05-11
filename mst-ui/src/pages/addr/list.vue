@@ -3,10 +3,10 @@
     <image @click="uni.navigateBack()" src="/static/back.png" class="back" />
     <image src="/static/top.png" class="top-bg" />
     <view class="tab">
-      <view @click="state.type = 1" class="item" :class="{ active: state.type === 1 }">
+      <view @click="state.type = 1" class="item" :class="{ active: state.type == 1 }">
         寄件地址
       </view>
-      <view @click="state.type = 2" class="item" :class="{ active: state.type === 2 }">
+      <view @click="state.type = 2" class="item" :class="{ active: state.type == 2 }">
         收件地址
       </view>
     </view>
@@ -81,8 +81,11 @@
 </template>
 
 <script setup>
-  import { computed, reactive } from 'vue'
+  import { computed, reactive, watchEffect } from 'vue'
+  import { usePageParams } from '../../hooks/usePageParams'
   import Confirm from '../../components/confirm/Confirm.vue'
+
+  const page = usePageParams()
 
   const state = reactive({
     type: 1, // 1寄件 2收件
@@ -130,6 +133,10 @@
         addr: '内蒙古包头市青山区文化路至新南街61号兰苑5栋3单元5楼46号',
       },
     ],
+  })
+
+  watchEffect(() => {
+    state.type = page.params.value.type || 1
   })
 
   const type = computed(() => {
