@@ -22,6 +22,7 @@
     { "path": "pages/my/my" },
     { "path": "pages/addr/list" },
     { "path": "pages/addr/edit" },
-    { "path": "pages/express/index" }
+    { "path": "pages/express/index" },
+    { "path": "pages/express/company" }
   ]
 }

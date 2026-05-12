@@ -40,7 +40,7 @@
             <image src="/static/express-index-arrow.png" class="arrow" />
           </view>
         </view>
-        <view class="item">
+        <view @click="uni.navigateTo({ url: '/pages/express/company' })" class="item">
           <view>快递公司选择</view>
           <view class="right">
             <view class="text">极兔快递</view>
