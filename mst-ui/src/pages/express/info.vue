@@ -357,7 +357,7 @@
           }
         }
         .input {
-          width: 100%;
+          width: 620rpx;
           height: 250rpx;
           padding: 30rpx;
           background: #f4f6f8;
