@@ -47,7 +47,7 @@
             <image src="/static/express-index-arrow.png" class="arrow" />
           </view>
         </view>
-        <view class="item">
+        <view @click="state.showTime = !state.showTime" class="item">
           <view>期望上门时间</view>
           <view class="right">
             <view class="text">预计今天 17:00前</view>
@@ -57,6 +57,33 @@
       </view>
       <image src="/static/express-index-ad.png" class="ad" />
     </view>
+    <u-popup
+      v-model="state.showTime"
+      :closeable="true"
+      height="650rpx"
+      mode="bottom"
+      border-radius="30"
+      class="time">
+      <view class="content">
+        <view class="title">选择上门时间</view>
+        <view class="tips">请准确选择快递员上门取件时间，并提前准备好包裹！</view>
+      </view>
+      <view class="picker">
+        <view class="col1">
+          <view @click="changeDay(0)" class="item" :class="{ active: state.day === 0 }">今天</view>
+          <view @click="changeDay(1)" class="item" :class="{ active: state.day === 1 }">明天</view>
+        </view>
+        <view class="col2">
+          <view>
+            <view class="item">09:00 ~ 11:00</view>
+            <view class="item">11:00 ~ 13:00</view>
+            <view class="item">13:00 ~ 15:00</view>
+            <view class="item">15:00 ~ 17:00</view>
+            <view class="item">17:00 ~ 19:00</view>
+          </view>
+        </view>
+      </view>
+    </u-popup>
     <u-popup
       v-model="state.showProtocol"
       :closeable="true"
@@ -147,9 +174,15 @@
   const state = reactive({
     protocolCheck: false,
     discountCheck: false,
+    showTime: false,
     showProtocol: false,
     showDetails: false,
+    day: 0, // 0今天 1明天
   })
+
+  const changeDay = day => {
+    state.day = day
+  }
 
   const agree = () => {
     state.protocolCheck = true
@@ -270,6 +303,56 @@
         width: 100%;
         height: 130rpx;
         margin-top: 60rpx;
+      }
+    }
+    .time {
+      color: #444444;
+      line-height: 1;
+      :deep(.u-close) {
+        top: 45rpx !important;
+      }
+      .content {
+        padding: 50rpx 30rpx 0;
+        .title {
+          color: #000000;
+          font-size: 34rpx;
+        }
+        .tips {
+          margin-top: 15rpx;
+          font-size: 24rpx;
+          color: #ff8800;
+        }
+      }
+      .picker {
+        height: 490rpx;
+        margin-top: 37rpx;
+        display: flex;
+        .col1 {
+          width: 160rpx;
+          background: #f9faff;
+          .item {
+            padding-left: 30rpx;
+            display: flex;
+            align-items: center;
+            height: 110rpx;
+            &.active {
+              background: #ffffff;
+            }
+          }
+        }
+        .col2 {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          .item {
+            font-size: 30rpx;
+            margin-left: -150rpx;
+            margin-bottom: 60rpx;
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+        }
       }
     }
     .protocol {
