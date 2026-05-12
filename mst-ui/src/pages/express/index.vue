@@ -33,7 +33,7 @@
         </view>
       </view>
       <view class="info">
-        <view class="item">
+        <view @click="uni.navigateTo({ url: '/pages/express/info' })" class="item">
           <view>物品信息</view>
           <view class="right">
             <view class="text">1kg 文件</view>
